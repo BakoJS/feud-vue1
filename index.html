@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Developer Feud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../node_modules/skeleton-css/css/normalize.css">
+    <link rel="stylesheet" href="../node_modules/skeleton-css/css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+</head>
+<body>
+    
+<div id="feud_admin" class="section categories">
+    <div class="container">
+        <h3 class="section-heading">Developer Feud</h3>
+        <div class="row">
+            <div class="four columns">
+                <ul class="container-list">
+                    <li v-for="q in Questions" >
+                        <a href="javascript:void(0)"
+                            :class="{'active': (q.QuestionID == activeQuestion)}"
+                            class="list-link" 
+                            @click="activeQuestion = q.QuestionID">{{q.QuestionText}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="eight columns">
+                <label for="">Question</label>
+                <div class="row" style="padding: 5px">
+                        <input type="text" class="twelve column" v-model="idxQuestions[activeQuestion].QuestionText">
+                </div>
+                <div class="row">
+
+                    <div class="six columns">
+                        <ul>
+                            <li v-for="a in idxQuestions[activeQuestion].Answers | orderBy 'AnswerText'" >
+                                <span class="text-block">{{a.AnswerText}}</span>
+                                <span class="count">{{a.AnswerVotes}}</span>
+                                <a href="javascript:void(0)" @click="toggleVote(a.AnswerID)" class="icon-list-block"><i :class="checkVote(a)" class="fa-heart"></i></a>
+                                <a href="javascript:void(0)" @click="deleteAnswer(a.AnswerID)" class="icon-list-block"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="six columns">
+                        <button class="button-secondary" @click="saveQuestion()">Save Question</button>
+
+                        <label>Answer: </label>
+                        <input type="text" v-model="newAnswer">
+                        <button class="button-primary" @click="addAnswer()">Add Answer</button>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

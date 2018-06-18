@@ -1,0 +1,27 @@
+{
+  "name": "feud-vue1",
+  "version": "1.0.0",
+  "description": "A Vue 1.0 Developer Feud App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/BakoJS/feud-vue1.git"
+  },
+  "author": "Scott Steinbeck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BakoJS/feud-vue1/issues"
+  },
+  "homepage": "https://github.com/BakoJS/feud-vue1#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5",
+    "skeleton-css": "^2.0.4",
+    "vue": "^1.0.28",
+    "vue-resource": "^1.5.1"
+  }
+}
