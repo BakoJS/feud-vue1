@@ -48,6 +48,12 @@ var feud_vue = new Vue({
     checkVote: function(answer) {
       return this.upvotedAnswers.indexOf(answer.AnswerID) != -1 ? "fas" : "far";
     },
+    addNewQuestion: function () {
+      
+      this.formData.QuestionID = 0;
+      this.formData.QuestionText = "";
+      this.formData.AnswerText = "";
+    },
     editQuestion: function(question) {
       this.formData.QuestionID = question.QuestionID;
       this.formData.QuestionText = question.QuestionText;
@@ -63,8 +69,16 @@ var feud_vue = new Vue({
         .then(function(res) {
           var result = res.body[0];
           console.log(result);
-          for (var i in result) {
-            _self.idxQuestions[result.QuestionID][i] = result[i];
+          if (_self.idxQuestions.hasOwnProperty(result.QuestionID)){
+            for (var i in result) {
+              _self.idxQuestions[result.QuestionID][i] = result[i];
+            }
+          } else {
+            _self.questionDB.push(result);
+            var question = _self.questionDB[_self.questionDB.length-1];
+            _self.idxQuestions[result.QuestionID] = question;
+            _self.editQuestion(question);
+
           }
         });
     },

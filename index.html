@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="css/custom.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
             crossorigin="anonymous">
-
     </head>
     <body>
         
@@ -29,7 +28,7 @@
                     <ul class="container-list">
                         <li v-for="q in questionDB | filterBy searchText" >
                             <a href="javascript:void(0)"
-                                :class="{'active': (q.QuestionID == activeQuestion)}"
+                                :class="{'active': (q.QuestionID == formData.QuestionID)}"
                                 class="list-link" 
                                 @click="editQuestion(q)">{{q.QuestionText}}</a>
                         </li>
