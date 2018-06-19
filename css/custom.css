@@ -2,6 +2,15 @@
 .columns {
     border: 1px solid #ccc;
 } */
+
+button.active {
+    background-color: #616060;
+    color: #fff;
+}
+
+input, textarea {
+    font-size: 13px;
+}
 ul.container-list {
     height: 400px;
     overflow: auto;
@@ -47,7 +56,7 @@ a.list-link {
     color: #616060;
     display: block;
     padding: 3px 10px;
-    background: linear-gradient(#fff, #f8f7f7);
+    background: linear-gradient(#fff, #f6f6f6);
 }
 
 .button.button-secondary,
@@ -65,6 +74,7 @@ button.button-secondary:hover,
 input[type="submit"].button-secondary:hover,
 input[type="reset"].button-secondary:hover,
 input[type="button"].button-secondary:hover,
+
 .button.button-secondary:focus,
 button.button-secondary:focus,
 input[type="submit"].button-secondary:focus,
