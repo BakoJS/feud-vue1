@@ -64,7 +64,8 @@ var feud_vue = new Vue({
       this.$http
         .post("http://localhost:3000/question", {
           questionID: this.formData.QuestionID,
-          questionText: this.formData.QuestionText
+          questionText: this.formData.QuestionText,
+          userID: this.activeUser
         })
         .then(function(res) {
           var result = res.body[0];
